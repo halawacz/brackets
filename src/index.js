@@ -1,6 +1,6 @@
 module.exports = function check(str, bracketsConfig) {
-    const brackets = [];
-    for (const e of bracketsConfig) {
+    let brackets = [];
+    for (e of bracketsConfig) {
         brackets.push(e.join(""));
     }
 
@@ -12,3 +12,13 @@ module.exports = function check(str, bracketsConfig) {
     }
     return str.length === 0 ? true : false;
 };
+/*
+console.log(check('()', [['(', ')']]));
+console.log(check('()', [['(', ')']])); // -> true
+console.log(check('((()))()', [['(', ')']])); // -> true
+console.log(check('())(', [['(', ')']])); // -> false
+console.log(check('([{}])', [['(', ')'], ['[', ']'], ['{', '}']]));// -> true
+console.log(check('[(])', [['(', ')'], ['[', ']']])); // -> false
+console.log(check('[]()', [['(', ')'], ['[', ']']])); // -> true
+console.log(check('[]()(', [['(', ')'], ['[', ']']])); // -> false
+*/
